@@ -47,7 +47,7 @@ def main(oxt_path: Path, xml_path: Path, output: Optional[Path] = None):
         ))
 
     # write the subtitles to an output file
-    output = output or xml_path.with_suffix(".srt")
+    output = output or oxt_path.with_suffix(".srt")
 
     with open(output, "w", encoding="utf-8") as file:
         file.write(srt.compose(subtitles))
@@ -59,7 +59,7 @@ if __name__ == "__main__":
     parser.add_argument("xml_path", type=Path, help="The input path for an '.xml' file.")
     
     parser.add_argument("--output", "-o", type=Path,
-        help="The output path for an '.srt' file. Defaults to the path of the '.xml' file.", 
+        help="The output path for an '.srt' file. Defaults to the path of the '.oxt' file.", 
         default=None
     )
 
